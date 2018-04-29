@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-// Login gets token based on a username and password
+// Login sets token based on a username and password
 // Endpoint: POST /api-token-auth/
 func (c *Client) Login() error {
 	v := url.Values{}
