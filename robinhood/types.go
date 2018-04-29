@@ -187,4 +187,71 @@ type (
 		Employment        *string    `json:"employment"`
 		AdditionalInfo    *string    `json:"additional_info"`
 	}
+
+	// UserBasicInfo data
+	UserBasicInfo struct {
+		PhoneNumber        *int64     `json:"phone_number,string"`
+		City               *string    `json:"city"`
+		NumberDependents   *int64     `json:"number_dependents"`
+		Citizenship        *string    `json:"citizenship"`
+		UpdatedAt          *time.Time `json:"updated_at"`
+		MaritalStatus      *string    `json:"marital_status"`
+		Zipcode            *int64     `json:"zipcode,string"`
+		CountryOfResidence *string    `json:"country_of_residence"`
+		State              *string    `json:"state"`
+		DateOfBirth        *date      `json:"date_of_birth"`
+		User               *string    `json:"user"`
+		Address            *string    `json:"address"`
+		TaxIDSSN           *int64     `json:"tax_id_ssn,string"`
+	}
+
+	// UserAdditionalInfo data
+	UserAdditionalInfo struct {
+		SecurityAffiliatedFirmRelationship *string    `json:"security_affiliated_firm_relationship"`
+		SecurityAffiliatedEmployee         *bool      `json:"security_affiliated_employee"`
+		SecurityAffiliatedAddress          *string    `json:"security_affiliated_address"`
+		ObjectToDisclosure                 *bool      `json:"object_to_disclosure"`
+		UpdatedAt                          *time.Time `json:"updated_at"`
+		ControlPerson                      *bool      `json:"control_person"`
+		StockLoanConsentStatus             *string    `json:"stock_loan_consent_status"`
+		SweepConsent                       *bool      `json:"sweep_consent"`
+		User                               *string    `json:"user"`
+		ControlPersonSecuritySymbol        *string    `json:"control_person_security_symbol"`
+		SecurityAffiliatedFirmName         *string    `json:"security_affiliated_firm_name"`
+		SecurityAffiliatedPersonName       *string    `json:"security_affiliated_person_name"`
+	}
+
+	// UserEmployment data
+	UserEmployment struct {
+		EmployerZipcode  *int64     `json:"employer_zipcode,string"`
+		EmploymentStatus *string    `json:"employment_status"`
+		EmployerAddress  *string    `json:"employer_address"`
+		UpdatedAt        *time.Time `json:"updated_at"`
+		EmployerName     *string    `json:"employer_name"`
+		User             *string    `json:"user"`
+		YearsEmployed    *int64     `json:"years_employed"`
+		EmployerState    *string    `json:"employer_state"`
+		EmployerCity     *string    `json:"employer_city"`
+		Occupation       *string    `json:"occupation"`
+	}
+
+	// UserInvestmentProfile data
+	UserInvestmentProfile struct {
+		AnnualIncome            *string    `json:"annual_income"`
+		InvestmentExperience    *string    `json:"investment_experience"`
+		UpdatedAt               *time.Time `json:"updated_at"`
+		OptionTradingExperience *string    `json:"option_trading_experience"`
+		RiskTolerance           *string    `json:"risk_tolerance"`
+		TotalNetWorth           *string    `json:"total_net_worth"`
+		LiquidityNeeds          *string    `json:"liquidity_needs"`
+		InvestmentObjective     *string    `json:"investment_objective"`
+		SourceOfFunds           *string    `json:"source_of_funds"`
+		User                    *string    `json:"user"`
+		SuitabilityVerified     *bool      `json:"suitability_verified"`
+		//TODO: Professional Trader?
+		TaxBracket                    *string `json:"tax_bracket"`
+		TimeHorizon                   *string `json:"time_horizon"`
+		LiquidNetWorth                *string `json:"liquid_net_worth"`
+		InvestmentExperienceCollected *bool   `json:"investment_experience_collected"`
+	}
 )
