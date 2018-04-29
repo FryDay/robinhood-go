@@ -2,7 +2,7 @@
 
 **This is extremely unfinished, incomplete, and not at all supported by Robinhood. Endpoint usage details is a combination of my own research and [sanko's](https://github.com/sanko/Robinhood) work. Use at your own risk!**
 
-Robinhood-go is a [Robinhood](https://robinhood.com/) client for the [Go](http://www.golang.org/) programming language.
+Robinhood-go is an unofficial [Robinhood](https://robinhood.com/) client for the [Go](http://www.golang.org/) programming language.
 
 [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/FryDay/robinhood-go/master/LICENSE)
 
