@@ -19,7 +19,6 @@ func (c *Client) Account() (*Account, error) {
 	}
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("Authorization", fmt.Sprintf("Token %s", c.config.Token))
-	fmt.Println(c.config.Token)
 
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
@@ -39,4 +38,34 @@ func (c *Client) Account() (*Account, error) {
 	}
 
 	return accounts.Accounts[0], nil
+}
+
+// User gets basic user info
+func (c *Client) User() (*User, error) {
+	if len(c.config.Token) == 0 {
+		return nil, fmt.Errorf("Not logged in")
+	}
+
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/user/", baseURL), nil)
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Accept", "application/json")
+	req.Header.Add("Authorization", fmt.Sprintf("Token %s", c.config.Token))
+
+	resp, err := c.httpClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	content, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	user := &User{}
+	json.Unmarshal(content, user)
+
+	return user, nil
 }

@@ -169,4 +169,22 @@ type (
 		UnclearedDeposits          *float64   `json:"uncleared_deposits,string"`
 		UnsettledFunds             *float64   `json:"unsettled_funds,string"`
 	}
+
+	// User data
+	User struct {
+		Username          *string    `json:"username"`
+		FirstName         *string    `json:"first_name"`
+		LastName          *string    `json:"last_name"`
+		IDInfo            *string    `json:"id_info"`
+		URL               *string    `json:"url"`
+		EmailVerified     *bool      `json:"email_verified"`
+		CreatedAt         *time.Time `json:"created_at"`
+		BasicInfo         *string    `json:"basic_info"`
+		Email             *string    `json:"email"`
+		InvestmentProfile *string    `json:"investment_profile"`
+		ID                *string    `json:"id"`
+		InternationalInfo *string    `json:"international_info"`
+		Employment        *string    `json:"employment"`
+		AdditionalInfo    *string    `json:"additional_info"`
+	}
 )
