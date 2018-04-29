@@ -73,8 +73,24 @@ type (
 
 	// Instruments data
 	Instruments struct {
-		Previous    string        `json:"previous"`
+		Previous    *string       `json:"previous"`
 		Instruments []*Instrument `json:"results"`
-		Next        string        `json:"next"`
+		Next        *string       `json:"next"`
+	}
+
+	// Split data
+	Split struct {
+		URL           *string  `json:"url"`
+		Instrument    *string  `json:"instrument"`
+		ExecutionDate *date    `json:"execution_date"`
+		Divisor       *float64 `json:"divisor,string"`
+		Multiplier    *float64 `json:"multiplier,string"`
+	}
+
+	// Splits data
+	Splits struct {
+		Previous *string  `json:"previous"`
+		Splits   []*Split `json:"results"`
+		Next     *string  `json:"next"`
 	}
 )
