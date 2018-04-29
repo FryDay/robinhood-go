@@ -27,7 +27,8 @@ type (
 		Low52Weeks        *float64 `json:"low_52_weeks,string"`
 		MarketCap         *float64 `json:"market_cap,string"`
 		DividendYield     *float64 `json:"dividend_yield,string"`
-		PERatio           *float64 `json:"pe_ratio"`
+		PERatio           *float64 `json:"pe_ratio,string"`
+		SharesOutstanding *float64 `json:"shares_outstanding,string"`
 		Description       *string  `json:"description"`
 		Instrument        *string  `json:"instrument"`
 		CEO               *string  `json:"ceo"`
@@ -36,5 +37,10 @@ type (
 		Sector            *string  `json:"sector"`
 		NumEmployees      *int64   `json:"num_employees"`
 		YearFounded       *int64   `json:"year_founded"`
+	}
+
+	// Fundamentals data
+	Fundamentals struct {
+		Fundamentals []*Fundamental `json:"results"`
 	}
 )
