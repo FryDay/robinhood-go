@@ -9,7 +9,7 @@ import (
 
 // InstrumentBySymbol gets instrument data by ticker symbol
 func (c *Client) InstrumentBySymbol(tickerSymbol string) (*Instrument, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s%s?symbol=%s", baseURL, "/instruments/", tickerSymbol), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/instruments/?symbol=%s", baseURL, tickerSymbol), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -37,7 +37,7 @@ func (c *Client) InstrumentBySymbol(tickerSymbol string) (*Instrument, error) {
 
 // InstrumentByID gets instrument data by ID
 func (c *Client) InstrumentByID(id string) (*Instrument, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s%s%s/", baseURL, "/instruments/", id), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/instruments/%s/", baseURL, id), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func (c *Client) InstrumentByID(id string) (*Instrument, error) {
 
 // Splits gets splits by ID
 func (c *Client) Splits(id string) (*Splits, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s%s%s/splits/", baseURL, "/instruments/", id), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/instruments/%s/splits/", baseURL, id), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func (c *Client) Splits(id string) (*Splits, error) {
 
 // Split gets a single split
 func (c *Client) Split(id, splitID string) (*Split, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s%s%s/splits/%s/", baseURL, "/instruments/", id, splitID), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/instruments/%s/splits/%s/", baseURL, id, splitID), nil)
 	if err != nil {
 		return nil, err
 	}

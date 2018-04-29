@@ -16,7 +16,7 @@ func (c *Client) Login(username, password string) error {
 	v.Set("username", username)
 	v.Set("password", password)
 
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s", baseURL, "/api-token-auth/"), strings.NewReader(v.Encode()))
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s/api-token-auth/", baseURL), strings.NewReader(v.Encode()))
 	if err != nil {
 		return err
 	}

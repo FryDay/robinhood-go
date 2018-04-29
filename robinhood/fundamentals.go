@@ -10,7 +10,7 @@ import (
 
 // Fundamental gets fundamental data by ticker symbol
 func (c *Client) Fundamental(tickerSymbol string) (*Fundamental, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s%s%s/", baseURL, "/fundamentals/", tickerSymbol), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/fundamentals/%s/", baseURL, tickerSymbol), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -39,7 +39,7 @@ func (c *Client) Fundamentals(tickerSymbols ...string) (*Fundamentals, error) {
 		return nil, fmt.Errorf("Can only get 10 symbols at a time")
 	}
 
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s%s", baseURL, "/fundamentals/"), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/fundamentals/", baseURL), nil)
 	if err != nil {
 		return nil, err
 	}
