@@ -2,6 +2,7 @@ package robinhood
 
 import (
 	"net/http"
+	"time"
 )
 
 type (
@@ -90,5 +91,82 @@ type (
 		Previous *string  `json:"previous"`
 		Splits   []*Split `json:"results"`
 		Next     *string  `json:"next"`
+	}
+
+	// Account data
+	Account struct {
+		Deactivated                *bool           `json:"deactivated"`
+		UpdatedAt                  *time.Time      `json:"updated_at"`
+		MarginBalances             *MarginBalances `json:"margin_balances"`
+		Portfolio                  *string         `json:"portfolio"`
+		CashBalances               *CashBalances   `json:"cash_balances"`
+		WithdrawalHalted           *bool           `json:"withdrawal_halted"`
+		CashAvailableForWithdrawal *float64        `json:"cash_available_for_withdrawal,string"`
+		Type                       *string         `json:"type"`
+		SMA                        *float64        `json:"sma,string"`
+		SweepEnabled               *bool           `json:"sweep_enabled"`
+		DepositHalted              *bool           `json:"deposit_halted"`
+		BuyingPower                *float64        `json:"buying_power,string"`
+		User                       *string         `json:"user"`
+		MaxAchEarlyAccessAmount    *float64        `json:"max_ach_early_access_amount,string"`
+		//TODO: Option Level?
+		//TODO: Instant Eligibility?
+		CashHeldForOrders         *float64   `json:"cash_held_for_orders,string"`
+		OnlyPositionClosingTrades *bool      `json:"only_position_closing_trades"`
+		URL                       *string    `json:"url"`
+		Positions                 *string    `json:"positions"`
+		CreatedAt                 *time.Time `json:"created_at"`
+		Cash                      *float64   `json:"cash,string"`
+		SMAHeldForOrders          *float64   `json:"sma_held_for_orders,string"`
+		UnsettledDebit            *float64   `json:"unsettled_debit,string"`
+		AccountNumber             *string    `json:"account_number"`
+		UnclearedDeposits         *float64   `json:"uncleared_deposits,string"`
+		UnsettledFunds            *float64   `json:"unsettled_funds,string"`
+	}
+
+	// Accounts data
+	Accounts struct {
+		Previous *string    `json:"previous"`
+		Accounts []*Account `json:"results"`
+		Next     *string    `json:"next"`
+	}
+
+	// MarginBalances data
+	MarginBalances struct {
+		UpdatedAt                         *time.Time `json:"updated_at"`
+		GoldEquityRequirement             *float64   `json:"gold_equity_requirement,string"`
+		OutstandingInterest               *float64   `json:"outstanding_interest,string"`
+		CashHeldForOptionsCollateral      *float64   `json:"cash_held_for_options_collateral,string"`
+		OvernightRatio                    *float64   `json:"overnight_ratio,string"`
+		DayTradeBuyingPower               *float64   `json:"day_trade_buying_power,string"`
+		CashAvailableForWithdrawal        *float64   `json:"cash_available_for_withdrawal,string"`
+		SMA                               *float64   `json:"sma,string"`
+		MarkedPatternDayTraderDate        *time.Time `json:"marked_pattern_day_trader_date"`
+		UnallocatedMarginCash             *float64   `json:"unallocated_margin_cash,string"`
+		UnclearedDeposits                 *float64   `json:"uncleared_deposits,string"`
+		OvernightBuyingPowerHeldForOrders *float64   `json:"overnight_buying_power_held_for_orders,string"`
+		DayTradeRatio                     *float64   `json:"day_trade_ratio,string"`
+		CashHeldForOrders                 *float64   `json:"cash_held_for_orders,string"`
+		UnsettledDebit                    *float64   `json:"unsettled_debit,string"`
+		CreatedAt                         *time.Time `json:"created_at"`
+		Cash                              *float64   `json:"cash,string"`
+		StartOfDayOvernightBuyingPower    *float64   `json:"start_of_day_overnight_buying_power,string"`
+		MarginLimit                       *float64   `json:"margin_limit,string"`
+		OvernightBuyingPower              *float64   `json:"overnight_buying_power,string"`
+		StartOfDayDTBP                    *float64   `json:"start_of_day_dtbp,string"`
+		UnsettledFunds                    *float64   `json:"unsettled_funds,string"`
+		DayTradeBuyingPowerHeldForOrders  *float64   `json:"day_trade_buying_power_held_for_orders,string"`
+	}
+
+	// CashBalances data
+	CashBalances struct {
+		CashHeldForOrders          *float64   `json:"cash_held_for_orders,string"`
+		CreatedAt                  *time.Time `json:"created_at"`
+		Cash                       *float64   `json:"cash,string"`
+		BuyingPower                *float64   `json:"buying_power,string"`
+		UpdatedAt                  *time.Time `json:"updated_at"`
+		CashAvailableForWithdrawal *float64   `json:"cash_available_for_withdrawl,string"`
+		UnclearedDeposits          *float64   `json:"uncleared_deposits,string"`
+		UnsettledFunds             *float64   `json:"unsettled_funds,string"`
 	}
 )
