@@ -13,9 +13,7 @@ type (
 
 	// Config holds our clients information
 	Config struct {
-		username string
-		password string
-		Token    string `json:"token"`
+		Token string `json:"token"`
 	}
 
 	// Fundamental data

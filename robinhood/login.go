@@ -11,10 +11,10 @@ import (
 
 // Login sets token based on a username and password
 // Endpoint: POST /api-token-auth/
-func (c *Client) Login() error {
+func (c *Client) Login(username, password string) error {
 	v := url.Values{}
-	v.Set("username", c.config.username)
-	v.Set("password", c.config.password)
+	v.Set("username", username)
+	v.Set("password", password)
 
 	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s", baseURL, "/api-token-auth/"), strings.NewReader(v.Encode()))
 	if err != nil {
