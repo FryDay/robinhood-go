@@ -254,4 +254,31 @@ type (
 		LiquidNetWorth                *string `json:"liquid_net_worth"`
 		InvestmentExperienceCollected *bool   `json:"investment_experience_collected"`
 	}
+
+	// Position data
+	Position struct {
+		SharesHeldForStockGrants       *float64   `json:"shares_held_for_stock_grants,string"`
+		Account                        *string    `json:"account"`
+		PendingAverageBuyPrice         *float64   `json:"pending_average_buy_price,string"`
+		SharesHeldForOptionsEvents     *float64   `json:"shares_held_for_options_events,string"`
+		IntradayAverageBuyPrice        *float64   `json:"intraday_average_buy_price,string"`
+		URL                            *string    `json:"url"`
+		SharesHeldForOptionsCollateral *float64   `json:"shares_held_for_options_collateral,string"`
+		CreatedAt                      *time.Time `json:"created_at"`
+		UpdatedAt                      *time.Time `json:"updated_at"`
+		SharedHeldForBuys              *float64   `json:"shares_held_for_buys,string"`
+		AverageBuyPrice                *float64   `json:"average_buy_price,string"`
+		Instrument                     *string    `json:"instrument"`
+		IntradayQuantity               *float64   `json:"intraday_quantity,string"`
+		SharesHeldForSells             *float64   `json:"shares_held_for_sells,string"`
+		SharesPendingFromOptionsEvents *float64   `json:"shares_pending_from_options_events,string"`
+		Quantity                       *float64   `json:"quantity,string"`
+	}
+
+	// Positions data
+	Positions struct {
+		Previous  *string     `json:"previous"`
+		Positions []*Position `json:"results"`
+		Next      *string     `json:"next"`
+	}
 )
